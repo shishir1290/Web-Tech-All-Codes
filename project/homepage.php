@@ -1,3 +1,6 @@
+<?php 
+	session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +9,10 @@
 	<title>Home Page</title>
 </head>
 <body align="center">
-	<a href="http://localhost/project/homepage.php"><img src="logo2.png" height="120" width="180"></a>
-	<hr color="red" size="5">
+	<?php
+
+	include 'header.php';
+	?>
 	<table align="right">
 		<tr>
 			<td>
@@ -29,7 +34,7 @@
 				?>
 			</td>
 		<tr>
-			<td> </td>
+			<td><a href="http://localhost/project/forgetpass.php">Forget password </td>
 			<td align="right"><input type="submit" value="Login"></td>
 		</tr>
 	</table>
@@ -39,7 +44,7 @@
 		</tr>
 		<tr>
 			<td align="right">
-	<form method="post" action="registrationpage.php" novalidate>
+		<form method="post" action="registrationpage.php" novalidate>
 		<input type="submit" value="Create new account" >
 
 		</form>
@@ -48,24 +53,14 @@
 	</table>
 	
 	<br><br><br><br><br><br>
-	<hr color="red" size="5">
+	
 
 </body>
 
 <body>
-	<h3 align="left">Customer Care</h3>
-	<table align="left">
-		<tr>
-			<td align="left">
-				<a href="http://localhost/project/helpcenter.php">Help Center</a>
-				<br>
-				<a href="http://localhost/project/howtobuy.php">How to buy</a>
-				<br>
-				<a href="http://localhost/project/return.php">Returns & Refunds</a>
-				
-			</td>
-		</tr>
-	</table>
+	<?php
+		include 'footer.php';
+	?>
 
 </body>
 </html>

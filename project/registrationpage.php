@@ -1,3 +1,6 @@
+<?php 
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +9,9 @@
 	<title>Registration Page</title>
 </head>
 <body align="center">
-  <a href="http://localhost/project/homepage.php"><img src="logo2.png" height="120" width="180"></a>
-  <hr color="red" size="5">
+  <?php 
+    include 'header.php';
+  ?>
 	<form method="post" action="registration.php" novalidate>
 	<h2 align="center">Registration Page</h2>
 	<table align="center">
@@ -26,8 +30,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg1'])) {
-            echo $_GET['msg1'];
+          if (isset($_SESSION['firstname'])) {
+            echo $_SESSION['firstname'];
           }
         ?>
       </td>
@@ -41,8 +45,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg2'])) {
-            echo $_GET['msg2'];
+          if (isset($_SESSION['lastname'])) {
+            echo $_SESSION['lastname'];
           }
         ?>
       </td>
@@ -56,8 +60,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg3'])) {
-            echo $_GET['msg3'];
+          if (isset($_SESSION['fathername'])) {
+            echo $_SESSION['fathername'];
           }
         ?>
       </td>
@@ -71,8 +75,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg4'])) {
-            echo $_GET['msg4'];
+          if (isset($_SESSION['mothername'])) {
+            echo $_SESSION['mothername'];
           }
         ?>
       </td>
@@ -86,8 +90,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg5'])) {
-            echo $_GET['msg5'];
+          if (isset($_SESSION['gender'])) {
+            echo $_SESSION['gender'];
           }
         ?>
       </td>
@@ -101,8 +105,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg6'])) {
-            echo $_GET['msg6'];
+          if (isset($_SESSION['birthday'])) {
+            echo $_SESSION['birthday'];
           }
         ?>
       </td>
@@ -140,8 +144,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg7'])) {
-            echo $_GET['msg7'];
+          if (isset($_SESSION['email'])) {
+            echo $_SESSION['email'];
           }
         ?>
       </td>
@@ -158,8 +162,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg8'])) {
-            echo $_GET['msg8'];
+          if (isset($_SESSION['phone'])) {
+            echo $_SESSION['phone'];
           }
         ?>
       </td>
@@ -176,8 +180,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg9'])) {
-            echo $_GET['msg9'];
+          if (isset($_SESSION['address'])) {
+            echo $_SESSION['address'];
           }
         ?>
       </td>
@@ -186,10 +190,6 @@
   <tr>
   	<td><br></td>
   </tr>
-  <!-- <tr>
-  	<th align="center"><label for="site">Web Site</label></th>
-    <td align="left">:<input type="text" id="site"name="site"></td>
-  </tr> -->
 
     </table>
   
@@ -211,8 +211,8 @@
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_GET['msg10'])) {
-            echo $_GET['msg10'];
+          if (isset($_SESSION['username'])) {
+            echo $_SESSION['username'];
           }
         ?>
       </td>
@@ -232,6 +232,15 @@
         ?>
       </td>
     <tr>
+      <tr>
+        <td align="center" colspan="2" style="color: #ff0000;">
+          <?php 
+            if(isset($_GET['msg12'])){
+            echo $_GET['msg12'];
+          }
+          ?>
+        </td>
+      </tr>
 
     </table>
   </fieldset>
@@ -244,6 +253,10 @@
   <td align="center">Already have an account? Login <a href="http://localhost/project/homepage.php"><u>here</u></a></td>
 </tr>
 </table>
+
+<?php
+  include 'footer.php';
+?>
 
 </form>
 

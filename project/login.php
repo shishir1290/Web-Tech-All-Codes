@@ -25,26 +25,48 @@
     			header("Location: homepage.php?msg1="."Username can not be empty");
     			$flag = false;
     		}
-    		else{
+    		
 
     		if(empty($password)){
     			header("Location: homepage.php?msg1="."Password can not be empty");
     			$flag = false;
+    		
     		}
-    		}
-    		if($flag === true){
+    		
+	    	}
+	    	if($flag === true){
 
-    			header('Location: homepage.php');
-    			}
-    		// else{
-    		// 	echo '</br>Try to login again. <a href="http://localhost/project/homepage.php"><u>Login</u></a>';
-    		// }
-    		}
-    		}
-    	// else{
-    	// 	echo '</br>Try to login again. <a href="http://localhost/project/homepage.php"><u>Login</u></a>';
+    			// header('Location: loginConfirm.php');
+    			$servername = "localhost";
+				$dbusername = "root";
+				$dbpassword = "";
+				$dbname = "gore gore";
 
-    	// 	}
+				// Create connection
+				$conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+				// Check connection
+				if (!$conn) {
+				  die("Connection failed: " . mysqli_connect_error());
+				}
+
+				$sql = "SELECT * FROM userinfo WHERE username='$username'and password='$password'";
+				$result = mysqli_query($conn, $sql);
+
+				if (mysqli_num_rows($result) > 0) {
+					header('Location: profile.php');
+				  // output data of each row
+				  // while($row = mysqli_fetch_assoc($result)) {
+				  //   header('Location: profile.php');
+				  // }
+				} else {
+				  header("Location: homepage.php?msg1="."Username and password is wrong. Please try again.");
+				}
+
+				mysqli_close($conn);
+    		
+	    		}
+	    }
+	    		
 
     	function sanitize($data){
     		$data = stripcslashes($data);

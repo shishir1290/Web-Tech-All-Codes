@@ -1,3 +1,8 @@
+<?php 
+	session_start();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +19,7 @@
     		$username = sanitize($_POST['username']);
     		$password = sanitize($_POST['password']);
     		$flag=true;
+    		
 
     		if(empty($username) && empty($password)){
     			header("Location: homepage.php?msg1="."Username and password can not be empty");
@@ -36,45 +42,47 @@
 	    	}
 	    	if($flag === true){
 
-    			// header('Location: loginConfirm.php');
-    			$servername = "localhost";
-				$dbusername = "root";
-				$dbpassword = "";
-				$dbname = "gore gore";
+			    $servername = "localhost";
+			    $dbusername = "root";
+			    $dbpassword = "";
+			    $dbname = "gore gore";
 
-				// Create connection
-				$conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
-				// Check connection
-				if (!$conn) {
-				  die("Connection failed: " . mysqli_connect_error());
-				}
+			    // Create connection
+			    $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+			    // Check connection
+			    if (!$conn) {
+			      die("Connection failed: " . mysqli_connect_error());
+			    }
 
-				$sql = "SELECT * FROM userinfo WHERE username='$username'and password='$password'";
-				$result = mysqli_query($conn, $sql);
+			    $sql = "SELECT password FROM userinfo WHERE username='$username'";
+			    $result = mysqli_query($conn, $sql);
 
-				if (mysqli_num_rows($result) > 0) {
-					header('Location: profile.php');
-				  // output data of each row
-				  // while($row = mysqli_fetch_assoc($result)) {
-				  //   header('Location: profile.php');
-				  // }
-				} else {
-				  header("Location: homepage.php?msg1="."Username and password is wrong. Please try again.");
-				}
+			    if (mysqli_num_rows($result) > 0) {
+			      while ($row = mysqli_fetch_assoc($result)){
+			        if($password === $row['password']){
+			          $_SESSION['username'] = $username;
+			          $_SESSION['password'] = $password;
+			          header('Location: HomePage2.php');
+			        }
+			        else {
+				      header("Location: homepage.php?msg1="."Username and password is wrong. Please try again.");
+				    }
+			      }
+			    }
+			    else {
+			      header("Location: homepage.php?msg1="."Username and password is wrong. Please try again.");
+			    }
 
-				mysqli_close($conn);
-    		
-	    		}
-	    }
+			    mysqli_close($conn);
+	    	}
+		}
 	    		
-
     	function sanitize($data){
     		$data = stripcslashes($data);
     		$data = htmlspecialchars($data);
     		return $data;
     	}
     ?>
-    
 
 </body>
 </html>

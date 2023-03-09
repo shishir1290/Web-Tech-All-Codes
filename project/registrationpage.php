@@ -204,23 +204,23 @@
     <legend>Account Information:</legend>
     <table>
       <tr>
-        <th align="center"><label for="username">Username</label></th>
-        <td align="left">:<input type="text" id="username" name="username"></td>
+        <th align="center"><label for="user">Username</label></th>
+        <td align="left">:<input type="text" id="user" name="user"></td>
       </tr>
 
       </tr>
       <td align="center" colspan="2" style="color: #ff0000;">
         <?php 
-          if (isset($_SESSION['username'])) {
-            echo $_SESSION['username'];
+          if (isset($_SESSION['user'])) {
+            echo $_SESSION['user'];
           }
         ?>
       </td>
     <tr>
 
       <tr>
-        <th align="center"><label for="passwprd">Password</label></th>
-        <td align="left">:<input type="password" id="passwprd" name="password"></td>
+        <th align="center"><label for="pass">Password</label></th>
+        <td align="left">:<input type="passwprd" id="pass" name="pass"></td>
       </tr>
 
       </tr>

@@ -10,8 +10,7 @@
 </head>
 <body align="center">
 	<?php
-
-	include 'header.php';
+		include 'header.php';
 	?>
 	<table align="right">
 		<tr>
@@ -34,7 +33,7 @@
 				?>
 			</td>
 		<tr>
-			<td><a href="http://localhost/project/forgetpass.php">Forget password </td>
+			<td><button><a href="http://localhost/project/forgetPass.php" style="text-decoration:none;">Forget password</a></button> </td>
 			<td align="right"><input type="submit" value="Login"></td>
 		</tr>
 	</table>
@@ -51,6 +50,11 @@
 		</td>
 	</tr>
 	</table>
+
+	<?php 
+
+		include 'product.php';
+	?>
 	
 	<br><br><br><br><br><br>
 	

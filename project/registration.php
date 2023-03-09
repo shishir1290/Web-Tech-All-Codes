@@ -27,74 +27,74 @@
         $phone = sanitize($_POST['phone']);
         $address = sanitize($_POST['address']);
         
-        $username = sanitize($_POST['username']);
-        $password = sanitize($_POST['password']);
+        $username = sanitize($_POST['user']);
+        $password = sanitize($_POST['pass']);
         $flag = true;
         
 
         if(empty($firstname)){
-          $_SESSION['firstname']="First name can not be empty";
+          $_SESSION['fname']="First name can not be empty";
           // header("Location: registrationpage.php?msg1="."First name can not be empty");
           $flag = false;
         }
 
         if(empty($lastname)){
-          $_SESSION['lastname']="Last name can not be empty";
+          $_SESSION['lname']="Last name can not be empty";
           $flag = false;
         }
 
         if(empty($fathername)){
-          $_SESSION['fathername']="Father's name can not be empty";
+          $_SESSION['faname']="Father's name can not be empty";
           // header("Location: registrationpage.php?msg3="."Father's name can not be empty");
           $flag = false;
         }
 
 
         if(empty($mothername)){
-          $_SESSION['mothername']="Mother's name can not be empty";
+          $_SESSION['moname']="Mother's name can not be empty";
           // header("Location: registrationpage.php?msg4="."Mother's name can not be empty");
           $flag = false;
         }
 
         if(empty($gender)){
-          $_SESSION['gender']="Gender can not be empty";
+          $_SESSION['gen']="Gender can not be empty";
           // header("Location: registrationpage.php?msg5="."Gender is not selected");
           $flag = false;
         }
 
         if(empty($birthday)){
-          $_SESSION['birthday']="Date of birth can not be empty";
+          $_SESSION['birth']="Date of birth can not be empty";
           // header("Location: registrationpage.php?msg6="."Date of birth can not be empty");
           $flag = false;
         }
 
         if(empty($email)){
-          $_SESSION['email']="Email can not be empty";
+          $_SESSION['mail']="Email can not be empty";
           // header("Location: registrationpage.php?msg7="."Email can not be empty");
           $flag = false;
         }
         else{
           if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $_SESSION['email']="Email can not be empty";
+            $_SESSION['mail']="Email can not be empty";
             // header("Location: registrationpage.php?msg7="."This is not an email");
             $flag = false;
           }
         }
 
         if(empty($phone)){
-          $_SESSION['phone']="Phone number can not be empty";
+          $_SESSION['mobile']="Phone number can not be empty";
           // header("Location: registrationpage.php?msg8="."Phone number can not be empty");
           $flag = false;
         }
 
         if(empty($address)){
-          $_SESSION['address']="Address can not be empty";
+          $_SESSION['adrs']="Address can not be empty";
           // header("Location: registrationpage.php?msg9="."Address can not be empty");
           $flag = false;
         }
 
         if(empty($username)){
-          $_SESSION['username']="Username can not be empty";
+          $_SESSION['user']="Username can not be empty";
           // header("Location: registrationpage.php?msg10="."Username can not be empty");
           $flag = false;
         }
@@ -105,17 +105,17 @@
         }
       
         if($flag === true){
-          $_SESSION['firstname']="";
-          $_SESSION['lastname']="";
-          $_SESSION['fathername']="";
-          $_SESSION['mothername']="";
-          $_SESSION['gender']="";
-          $_SESSION['birthday']="";
-          $_SESSION['email']="";
-          $_SESSION['phone']="";
-          $_SESSION['address']="";
-          $_SESSION['username']="";
-          $_SESSION['password']="";
+          $_SESSION['fname']="";
+          $_SESSION['lname']="";
+          $_SESSION['faname']="";
+          $_SESSION['moname']="";
+          $_SESSION['gen']="";
+          $_SESSION['birth']="";
+          $_SESSION['mail']="";
+          $_SESSION['mobile']="";
+          $_SESSION['adrs']="";
+          $_SESSION['user']="";
+          $_SESSION['pass']="";
 
                     
           $servername = "localhost";
@@ -142,7 +142,7 @@
           mysqli_close($conn);
           
 
-        header("Location: profile.php");
+        header("Location: homepage.php");
         }
     		
       }

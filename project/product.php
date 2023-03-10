@@ -5,9 +5,9 @@
     $dbpassword = "";
     $dbname = "gore gore";
 
-    // Create connection
+    
     $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
-    // Check connection
+    
     if (!$conn) {
       die("Connection failed: " . mysqli_connect_error());
     }
@@ -15,7 +15,7 @@
     $sql = "SELECT * FROM product";
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
-    $numRows = 4;
+    $numRows = 6;
     $numCols = 6;
 
     echo "<table>";

@@ -37,6 +37,7 @@
   $details = $product['productDetails'];
   $product_price = $product['price'];
   $product_name = $product['productName'];
+  $productPic=$product['pic'];
 
   
 
@@ -67,12 +68,13 @@
           $customerId = $row['userId'];
           
           if(isset($customerName)){
-            $sql = "INSERT INTO orderinfo (customerId,customerName, product_id, productPrice) VALUES ($customerId,'$customerName',           $product_id, $product_price)";
-            if (mysqli_query($conn, $sql)) {
-                echo "Order placed successfully!";
-            } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            }
+            // $sql = "INSERT INTO orderinfo (customerId,customerName, product_id, productPrice) VALUES ($customerId,'$customerName',           $product_id, $product_price)";
+            // if (mysqli_query($conn, $sql)) {
+            header("Location: buyNow.php? productId=$product_id&customerId=$customerId&customerName=$customerName&product_price=$product_price &pic=$productPic&product_name=$product_name");
+                // echo "Order placed successfully!";
+            // } else {
+            //     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            // }
           }
           else{
             header("Location: homepage.php?msg1="."Please Login Fisrt.");

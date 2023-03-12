@@ -1,40 +1,36 @@
+
 <?php
-  session_start();
-  if (isset($_COOKIE['product_id'])) {
-    $product_id = $_COOKIE['product_id'];
-  }
+session_start();
+include 'header.php';
 
-  include 'header.php';
+if(isset($_COOKIE['cart'])) {
+    $cart_items = $_COOKIE['cart'];
+    
+    $servername = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "gore gore";
+    $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+    
+    foreach($cart_items as $product_id => $product) {
+        $product_name = mysqli_real_escape_string($conn, $product['name']);
+        $product_price = mysqli_real_escape_string($conn, $product['price']);
+        $query = "SELECT * FROM product WHERE productId = '$product_id'";
+        $result = mysqli_query($conn, $query);
+        $row = mysqli_fetch_assoc($result);
 
-  $servername = "localhost";
-  $dbusername = "root";
-  $dbpassword = "";
-  $dbname = "gore gore";
-  $conn = mysqli_connect($servername, $dbusername, $dbpassword, $dbname);
+        echo '
+        <td><img src="'.$row['pic'].'" height="200" width="200"></td>
+        <td>'.$row['productName'].'('.$row['price'].') </td>
+        <td> </td>';
+        echo '<td><button><a href="productInfo.php?productId='.$product_id.'" style="text-decoration:none;">Buy Now</a></button></td>';
+    }
+    
+    mysqli_close($conn);
+} else {
+    echo "Your cart is empty.";
+}
 
-  // Check the connection
-  if (!$conn) {
-      die("Connection failed: " . mysqli_connect_error());
-  }
-  $sql = "SELECT * FROM product WHERE productId = $product_id";
-  $result = mysqli_query($conn, $sql);
-
-  if (!$result) {
-      die("Error: " . mysqli_error($conn));
-  }
-
-  if (mysqli_num_rows($result) == 0) {
-      die("Product not found.");
-  }
-  $cart = mysqli_fetch_assoc($result);
-  echo '<table>
-        <tr>
-        <td><img src="'.$cart['pic'].'" height="200" width="200"></td>
-        <td>'.$cart['productName'].'('.$cart['price'].') </td>
-        <td><?td>
-        </tr>
-        </table>';
-  echo '<button><a href="productInfo.php" style="text-decoration:none;">Buy Now</a></button>';
-mysqli_close($conn);
-
+include 'footer.php';
 ?>
+

@@ -55,7 +55,9 @@
       // echo "<a href='cart.php?product_id=$product_id&product_name=$product_name&product_price= $product_price'>Add to cart</a>";
         echo '<form action="cart.php" method="POST">
                 <input type="hidden" name="product_id" value="'.$product_id.'">
-                <input type="submit" value="Add to cart">
+                <input type="hidden" name="product_name" value="'.$product_name.'">
+                <input type="hidden" name="product_price" value="'.$product_price.'">
+                <input type="submit" value="Add to cart" name="add_to_cart">
               </form>';
 
 

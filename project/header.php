@@ -8,8 +8,11 @@
 		<table align="right">
 		<tr>
 			<td align="center">';
-		include 'selectBGcolor.php';
-			echo '</td>
+		// include 'selectBGcolor.php';
+			echo '
+			</td>
+			<td align="right"><button><a href="setCart.php" style="text-decoration:none;">Show Cart</a></button></td>
+			
 			<td align="right"><button><a href="http://localhost/project/profile.php" style="text-decoration:none;">Profile</a></button></td>
 		</tr>
 		
@@ -23,8 +26,9 @@
 		<tr>
 		<td align="center">';
 
-		include 'selectBGcolor.php';
+		// include 'selectBGcolor.php';
 		echo '</td>
+		<td align="right"><button><a href="setCart.php" style="text-decoration:none;">Show Cart</a></button></td>
 		</tr>
 		</table>';
 

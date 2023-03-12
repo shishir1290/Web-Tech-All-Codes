@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'header.php';
 $servername = "localhost";
 $username = "root";
@@ -34,8 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $lastname = $_POST['lname'];
   $fathername = $_POST['fathername'];
   $mothername = $_POST['mothername'];
+  $phone = $_POST['phone'];
+  $address = $_POST['address'];
 
-  $sql = "UPDATE userinfo SET firstname='$firstname', lastname='$lastname', fathername='$fathername', mothername='$mothername' WHERE username='$username'";
+  $sql = "UPDATE userinfo SET firstname='$firstname', lastname='$lastname', fathername='$fathername', mothername='$mothername', phone='$phone', address='$address' WHERE username='$username'";
 
   if (mysqli_query($conn, $sql)) {
     echo "User updated successfully";
@@ -80,6 +82,15 @@ mysqli_close($conn);
         <th align="center"><label for="mothername">Mother's Name</label></th>
         <td align="left">:<input type="text" id="mothername" name="mothername" value="<?php echo $row['mothername']; ?>"></td>
       </tr>
+
+      <tr>
+    <th align="center"><label for="phone">Phone/Mobile</label></th>
+    <td align="left">:<input type="number" id="phone"name="phone" value="<?php echo $row['phone']; ?>"></td>
+  </tr>
+  <tr>
+    <th align="center"><label for="address">Present Address</label></th>
+    <td align="left">:<input type="text" id="address"name="address" value="<?php echo $row['address']; ?>"></td>
+  </tr>
 
 
 

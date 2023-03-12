@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2023 at 06:48 AM
+-- Generation Time: Mar 12, 2023 at 09:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -54,11 +54,7 @@ CREATE TABLE `orderinfo` (
 --
 
 INSERT INTO `orderinfo` (`orderId`, `customerId`, `customerName`, `product_id`, `productPrice`, `payment_method`) VALUES
-(30, 1, 'shishir', 2, 120, 'cash_on_delivary'),
-(31, 1, 'shishir', 1, 100, 'cash_on_delivary'),
-(32, 1, 'shishir', 25, 500, 'bkash'),
-(33, 1, 'shishir', 18, 350, 'bkash'),
-(34, 1, 'shishir', 15, 200, 'cash_on_delivary');
+(35, 6, 'whiteface', 10, 250, 'bkash');
 
 -- --------------------------------------------------------
 
@@ -135,7 +131,7 @@ CREATE TABLE `userinfo` (
 
 INSERT INTO `userinfo` (`userId`, `username`, `password`, `firstname`, `lastname`, `fathername`, `mothername`, `gender`, `birthday`, `email`, `phone`, `address`, `blood`) VALUES
 (1, 'shishir', '123', 'Sadmanur Islam', 'Shishir', 'Samsul', 'Sheuly', 'Male', '2023-03-10 05:41:35', 'shishir1290@gmail.com', 3243245234, 'Gazipur', 'b+'),
-(2, 'sinthia1', 'Shadia@123', 'SInthia', 'Shadia', 'Shajahan', 'Mone', 'Female', '2023-03-07 17:45:57', 'sinthia12shadia@gmail.com', 19301780544, 'Gazipur', 'o+');
+(6, 'whiteface', 'janina', 'adnan', 'alam', 'abdul', 'halima', 'Male', '2003-06-19 18:00:00', 'milkiway6699@gmail.com', 1625497722, 'mirpur,dhaka', 'ab+');
 
 --
 -- Indexes for dumped tables
@@ -181,7 +177,7 @@ ALTER TABLE `chat_messages`
 -- AUTO_INCREMENT for table `orderinfo`
 --
 ALTER TABLE `orderinfo`
-  MODIFY `orderId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `orderId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -193,7 +189,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `userinfo`
 --
 ALTER TABLE `userinfo`
-  MODIFY `userId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userId` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
